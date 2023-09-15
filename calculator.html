@@ -1,0 +1,146 @@
+<html> 
+<head> 
+	<script> 
+		//function that display value 
+		function dis(val) 
+		{ 
+			if((document.getElementById("result").value=="") && (val=='+'||val=='/'||val=='*')) {
+				document.getElementById("result").value="";
+			}
+			else{
+					document.getElementById("result").value +=val; 
+				}
+		} 
+		
+		//function that evaluates the digit and return result 
+		function solve() 
+		{ 
+			let x = document.getElementById("result").value;
+			let y = eval(x);
+			document.getElementById("result").value = y;
+		} 
+		function sins() 
+		{ 
+			var v = parseInt(document.getElementById("result").value);
+			document.getElementById("result").value = Math.sin(v);
+		} 
+		function tans() 
+		{ 
+			var v = parseInt(document.getElementById("result").value);
+			document.getElementById("result").value = Math.tan(v);
+		}
+		 function coss() 
+		{ 
+			var v = parseInt(document.getElementById("result").value);
+			document.getElementById("result").value = Math.cos(v);
+		} 
+		 function sqrts() 
+		{ 
+			var v = parseInt(document.getElementById("result").value);
+			document.getElementById("result").value = Math.sqrt(v);
+		}
+		//function that clear the display 
+		function clr() 
+		{ 
+			document.getElementById("result").value = "";
+		} 
+	</script> 
+	<!-- for styling -->
+	<style> 
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body{
+
+			background-color: #444;
+		}
+		.main{
+			width: 50%;
+			margin: auto;
+			background-color: #333;
+			color: #fff;
+			border: 2px solid gray;
+
+		}
+		.title{ 
+		margin: 10px; 
+		text-align:center; 
+		font-size: 2rem; 
+		} 
+
+		input[type="button"] 
+		{ 
+		background-color:#555; 
+		color: #eee; 
+		height: 3em;
+		border: solid black 2px; 
+		width:100% 
+		} 
+		input[type="button"]:hover{
+			background-color:#fff; 
+		color: #000; 
+		}
+		input[type="text"] 
+		{ 
+		background-color:white; 
+		border: solid black 2px; 
+		width:100% 
+		} 
+		table{
+			width: 100%;
+		}
+		input#result{
+			text-align: right;
+			height: 3em;
+		}
+	</style> 
+</head> 
+<!-- create table -->
+<body> 
+	<div class="main">
+	<div class = "title" >Calculator</div> 
+	<table border="1"> 
+		<tr> 
+			<td colspan="3"><input type="text" id="result"/></td> 
+			<!-- clr() function will call clr to clear all value -->
+			<td><input type="button" value="c" onclick="clr()"/> </td> 
+		</tr> 
+			<tr> 
+			<td><input type="button" value="Sin" onclick="sins()"/> </td> 
+			<td><input type="button" value="Tan" onclick="tans()"/> </td> 
+			<td><input type="button" value="Cos" onclick="coss()"/> </td> 
+			<td><input type="button" value="&radic;" onclick="sqrts()"/> </td> 
+		</tr> 
+		<tr> 
+			<!-- create button and assign value to each button -->
+			<!-- dis("1") will call function dis to display value -->
+			<td><input type="button" value="1" onclick="dis('1')"/> </td> 
+			<td><input type="button" value="2" onclick="dis('2')"/> </td> 
+			<td><input type="button" value="3" onclick="dis('3')"/> </td> 
+			<td><input type="button" value="/" onclick="dis('/')"/> </td> 
+		</tr> 
+		<tr> 
+			<td><input type="button" value="4" onclick="dis('4')"/> </td> 
+			<td><input type="button" value="5" onclick="dis('5')"/> </td> 
+			<td><input type="button" value="6" onclick="dis('6')"/> </td> 
+			<td><input type="button" value="-" onclick="dis('-')"/> </td> 
+		</tr> 
+		<tr> 
+			<td><input type="button" value="7" onclick="dis('7')"/> </td> 
+			<td><input type="button" value="8" onclick="dis('8')"/> </td> 
+			<td><input type="button" value="9" onclick="dis('9')"/> </td> 
+			<td><input type="button" value="+" onclick="dis('+')"/> </td> 
+		</tr> 
+		<tr> 
+			<td><input type="button" value="." onclick="dis('.')"/> </td> 
+			<td><input type="button" value="0" onclick="dis('0')"/> </td> 
+			<!-- solve function call function solve to evaluate value -->
+			<td><input type="button" value="=" onclick="solve()"/> </td> 
+			<td><input type="button" value="*" onclick="dis('*')"/> </td> 
+		</tr> 
+	</table> 
+	</div>
+</body> 
+</html> 
